@@ -1,9 +1,12 @@
 #include<stdio.h>
-struct student
+
+typedef struct
 {
-	char name[10];
-	int age;
-};
+	char ename[20];
+	int eage;
+	char designation[20];
+}employee;
+
 int main()
 {
 	int n,i,nage,q=0;
