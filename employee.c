@@ -5,6 +5,7 @@ typedef struct
 	char ename[20];
 	int eage;
 	char designation[20];
+	char address[50];
 }employee;
 
 int main()
