@@ -44,64 +44,64 @@ int main()
 	
 	do
 	{
-	printf("\nEnter filename to read contents: ");
-	scanf("%s",filename);
+		printf("\nEnter filename to read contents: ");
+		scanf("%s",filename);
 	
-	fp=fopen(filename,"r");
-	if(fp==NULL)
-	{
-		printf("\nSorry filename does not exits...");
-		goto p;
-	}
-	printf("\n----------------------------");
-	printf("\nStudent details is as follows:\n");
-	if(q==0)
-	{
-	fscanf(fp,"%s %d",cname,&cage);
-	printf("\nName:=%s  Age:=%d",cname,cage);
-	}
-	else
-	{
-		fscanf(fp,"%s %d %s",cname,&cage,addr);
-		printf("\nName:=%s  Age:=%d Address=%s",cname,cage,addr);
-	}
-	fclose(fp);
+		fp=fopen(filename,"r");
+		if(fp==NULL)
+		{
+			printf("\nSorry filename does not exits...");
+			goto p;
+		}
+		printf("\n----------------------------");
+		printf("\nStudent details is as follows:\n");
+		if(q==0)
+		{
+			fscanf(fp,"%s %d",cname,&cage);
+			printf("\nName:=%s  Age:=%d",cname,cage);
+		}
+		else
+		{
+			fscanf(fp,"%s %d %s",cname,&cage,addr);
+			printf("\nName:=%s  Age:=%d Address=%s",cname,cage,addr);
+		}
+		fclose(fp);
 
-	printf("\n------------------------------------");
-	printf("\n\nEnter filename to update age: ");
-	scanf("%s",filename);
+		printf("\n------------------------------------");
+		printf("\n\nEnter filename to update age: ");
+		scanf("%s",filename);
 	
-	fp=fopen(filename,"r");
-	fscanf(fp,"%s %d",cname,&cage);
-	printf("\nEnter new age: ");
-	scanf("%d",&nage);
-	cage=nage;
-	fclose(fp);
+		fp=fopen(filename,"r");
+		fscanf(fp,"%s %d",cname,&cage);
+		printf("\nEnter new age: ");
+		scanf("%d",&nage);
+		cage=nage;
+		fclose(fp);
 	
-	fp=fopen(filename,"w");
-	fprintf(fp,"%s %d",cname,cage);
-	printf("\nContent updated to file successfully.....");
-	fclose(fp);
-
-
-	printf("\n------------------------------------");
-	printf("\n\nEnter filename to append address: ");
-	scanf("%s",filename);
-	
-	fp=fopen(filename,"a");
-	printf("\nEnter address to append to the file: ");
-	scanf("%s",addr);
-	fprintf(fp," %s",addr);
-	printf("\nAddress appended to file successfully.........");
-	q++;t
-	fclose(fp);
+		fp=fopen(filename,"w");
+		fprintf(fp,"%s %d",cname,cage);
+		printf("\nContent updated to file successfully.....");
+		fclose(fp);
 
 
-	p: fflush(stdin);  // clears the standard i/o buffer
+		printf("\n------------------------------------");
+		printf("\n\nEnter filename to append address: ");
+		scanf("%s",filename);
 	
-	printf("\n----------------------------");
-	printf("\n\nEnter y to continue or n to quit\n");
-	scanf("%c",&t);
+		fp=fopen(filename,"a");
+		printf("\nEnter address to append to the file: ");
+		scanf("%s",addr);
+		fprintf(fp," %s",addr);
+		printf("\nAddress appended to file successfully.........");
+		q++;
+		fclose(fp);
+
+
+		p: fflush(stdin);  // clears the standard i/o buffer
+	
+		printf("\n----------------------------");
+		printf("\n\nEnter y to continue or n to quit\n");
+		scanf("%c",&t);
 	}while(t!='n');
 	return 0;
 }
