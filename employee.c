@@ -11,18 +11,18 @@ typedef struct
 int main()
 {
 	int n,i,nage,q=0;
-	char filename[10],t;
+	char filename[20],t;
 	FILE *fp;
-	char cname[10],addr[10];
-	int cage,p;
+	char ename[20],address[20], designation[20];
+	int eage,p;
 	
-	struct student *s;
-	printf("\nEnter the number of student records:\n");
+	employee *e;
+	printf("\nEnter the number of employee records:\n");
 	scanf("%d",&n);
 	
-	s=(struct student*)malloc(n*sizeof(struct student));
+	e=(employee*)malloc(n*sizeof(employee));
 	
-	printf("\nEnter the student details:\n");
+	printf("\nEnter the employee details:\n");
 	for(i=0;i<n;i++)
 	{
 		printf("\nEnter the filename to create: ");
@@ -30,12 +30,12 @@ int main()
 		
 		fp=fopen(filename,"w");
 		
-		printf("\nEnter student name :");
-		scanf("%s",s[i].name);
-		printf("\nEnter student age :");
-		scanf("%d",&s[i].age);
+		printf("\nEnter employee name :");
+		scanf("%s",e[i].ename);
+		printf("\nEnter employee age :");
+		scanf("%d",&e[i].eage);
 		
-		fprintf(fp,"%s %d",s[i].name,s[i].age);
+		fprintf(fp,"%s %d",e[i].ename,e[i].eage);
 		
 		printf("\nContents written to file successfully.....\n");
 		printf("\n-----------------------------------\n");
