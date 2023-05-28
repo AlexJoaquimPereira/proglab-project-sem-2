@@ -13,8 +13,8 @@ int main()
 	int n,i,nage,q=0;
 	char filename[20],t;
 	FILE *fp;
-	char ename[20],address[20], designation[20]; //added designation and changed cname to ename, 
-	int eage,p; //changed cage to eage
+	char ename[20],address[20], designation[20];
+	int eage, p;
 	
 	employee *e;
 	printf("\nEnter the number of employee records:\n");
