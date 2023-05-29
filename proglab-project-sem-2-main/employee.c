@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct
 {
@@ -11,7 +13,7 @@ typedef struct
 int main()
 {
 	int n, i, nage, q = 0;
-	char filename[20], t;
+	char filename[24], t;
 	FILE *fp;
 	char ename[20], address[20], designation[20];
 	int eage, p, s;
@@ -25,20 +27,16 @@ int main()
 	printf("\nEnter the employee details:\n");
 	for (i = 0; i < n; i++)
 	{
-		printf("\nEnter the filename to create: ");
-		scanf("%s", filename);
-
-		fp = fopen(filename, "w");
-
+		//printf("\nEnter the filename to create: ");
+		//scanf("%s", filename);
 		printf("\nEnter employee name :");
 		scanf("%s", e[i].ename);
-		printf("\nEnter employee age :");
-		scanf("%d", &e[i].eage);
 
-		fprintf(fp, "%s %d", e[i].ename, e[i].eage);
+		strcpy(filename, e[i].ename);
+		strcat(filename, ".txt");
 
-		printf("\nContents written to file successfully.....\n");
-		printf("\n-----------------------------------\n");
+		fp = fopen(filename, "w");
+		printf("File created: %s\n", filename);
 		fclose(fp);
 	}
 
@@ -63,7 +61,19 @@ int main()
 					printf("\nSorry filename does not exits...");
 					goto p;
 				}
-				printf("\n----------------------------");
+
+				printf("\nEnter employee name :");
+				scanf("%s", e[i].ename);
+				printf("\nEnter employee age :");
+				scanf("%d", &e[i].eage);
+				printf("\nEnter employee designation: ");
+				scanf("%s", e[i].designation);
+
+				fprintf(fp, "%s %d %s", e[i].ename, e[i].eage, e[i].designation);
+		
+				printf("\nContents written to file successfully.....\n");
+				printf("\n-----------------------------------\n");
+
 				printf("\nEmployee details is as follows:\n");
 				if (q == 0)
 				{
