@@ -22,21 +22,34 @@ int main()
 	printf("\nEnter the number of employee records:\n");
 	scanf("%d", &n);
 
-	e = (employee *)malloc(n * sizeof(employee));
+	e = (employee *)malloc(n*sizeof(employee));
 
 	printf("\nEnter the employee details:\n");
 	for (i = 0; i < n; i++)
 	{
-		//printf("\nEnter the filename to create: ");
-		//scanf("%s", filename);
-		printf("\nEnter employee name :");
+		printf("\nEnter the filename to create: ");
+		scanf("%s", filename);
+
+		/*printf("\nEnter employee name :");
 		scanf("%s", e[i].ename);
 
 		strcpy(filename, e[i].ename);
-		strcat(filename, ".txt");
+		strcat(filename, ".txt");*/
 
 		fp = fopen(filename, "w");
 		printf("File created: %s\n", filename);
+		printf("\nEnter employee name :");
+		scanf("%s", e[i].ename);
+		printf("\nEnter employee age :");
+		scanf("%d", &e[i].eage);
+		printf("\nEnter employee designation: ");
+		scanf("%s", e[i].designation);
+
+		fprintf(fp, "%s %d %s", e[i].ename, e[i].eage, e[i].designation);
+		
+		printf("\nContents written to file successfully.....\n");
+		printf("\n-----------------------------------\n");
+
 		fclose(fp);
 	}
 
@@ -61,19 +74,7 @@ int main()
 					printf("\nSorry filename does not exits...");
 					goto p;
 				}
-
-				printf("\nEnter employee name :");
-				scanf("%s", e[i].ename);
-				printf("\nEnter employee age :");
-				scanf("%d", &e[i].eage);
-				printf("\nEnter employee designation: ");
-				scanf("%s", e[i].designation);
-
-				fprintf(fp, "%s %d %s", e[i].ename, e[i].eage, e[i].designation);
-		
-				printf("\nContents written to file successfully.....\n");
-				printf("\n-----------------------------------\n");
-
+				
 				printf("\nEmployee details is as follows:\n");
 				if (q == 0)
 				{
